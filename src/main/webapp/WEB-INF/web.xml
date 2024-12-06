@@ -3,6 +3,18 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+    <filter>
+        <filter-name>SecurityHeadersFilter</filter-name>
+        <filter-class>org.apache.catalina.filters.HttpHeaderSecurityFilter</filter-class>
+        <init-param>
+            <param-name>xContentTypeOptions</param-name>
+            <param-value>nosniff</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>SecurityHeadersFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
  <servlet>
         <servlet-name>Install</servlet-name>
